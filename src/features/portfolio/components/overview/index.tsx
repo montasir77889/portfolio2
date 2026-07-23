@@ -65,7 +65,7 @@ export function Overview() {
             <GraduationCapIcon />
           </IntroItemIcon>
           <IntroItemContent>
-            BRAC University
+            BRAC UNIversity
           </IntroItemContent>
         </IntroItem>
 
