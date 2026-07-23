@@ -42,9 +42,10 @@ const projectsText = `## Projects
 ${PROJECTS.map((item) => {
   const skills = `\n\nSkills: ${item.skills.join(", ")}`
   const description = item.description ? `\n\n${item.description.trim()}` : ""
-  return `### ${item.title}\n\nProject URL: ${item.link}${skills}${description}`
-}).join("\n\n")}
-`
+  const projectUrl = item.liveDemo || item.github
+
+return `### ${item.title}${
+  projectUrl ? `\n\nProject URL: ${projectUrl}` : ""}${skills}${description}`}).join("\n\n")}`
 
 async function getContent() {
   return `<s>This document contains comprehensive information about ${USER.displayName}'s professional profile and portfolio. It includes personal details, work experience, projects, and skills. This data is formatted for consumption by Large Language Models (LLMs) to provide accurate and up-to-date information about ${USER.displayName}'s background, skills, and expertise as an ${USER.jobTitle}.</s>
