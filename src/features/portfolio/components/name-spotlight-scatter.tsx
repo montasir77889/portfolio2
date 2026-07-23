@@ -41,7 +41,7 @@ export function NameSpotlightScatter({ name }: { name: string }) {
     const pointer = { x: -9999, y: -9999 }
 
     function resolveFontFamily() {
-      return getComputedStyle(container).fontFamily || "sans-serif"
+      return getComputedStyle(container!).fontFamily || "sans-serif"
     }
 
     function buildDots(width: number, height: number) {
@@ -52,14 +52,14 @@ export function NameSpotlightScatter({ name }: { name: string }) {
 
       const dpr = window.devicePixelRatio || 1
 
-      canvas.width = W * dpr
-      canvas.height = H * dpr
+      canvas!.width = W * dpr
+      canvas!.height = H * dpr
 
-      canvas.style.width = `${W}px`
-      canvas.style.height = `${H}px`
+      canvas!.style.width = `${W}px`
+      canvas!.style.height = `${H}px`
 
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-      ctx.clearRect(0, 0, W, H)
+      ctx!.setTransform(dpr, 0, 0, dpr, 0, 0)
+      ctx!.clearRect(0, 0, W, H)
 
       const off = document.createElement("canvas")
       off.width = W
@@ -108,7 +108,7 @@ export function NameSpotlightScatter({ name }: { name: string }) {
     }
 
     function resize() {
-      const rect = container.getBoundingClientRect()
+      const rect = container!.getBoundingClientRect()
       buildDots(rect.width, rect.height)
     }
 
@@ -125,7 +125,7 @@ export function NameSpotlightScatter({ name }: { name: string }) {
     }
 
     function handlePointerMove(e: MouseEvent | TouchEvent) {
-      const rect = canvas.getBoundingClientRect()
+      const rect = canvas!.getBoundingClientRect()
 
       const clientX = "touches" in e ? e.touches[0].clientX : e.clientX
       const clientY = "touches" in e ? e.touches[0].clientY : e.clientY
@@ -147,9 +147,9 @@ export function NameSpotlightScatter({ name }: { name: string }) {
     let animationId = 0
 
     function animate() {
-      ctx.clearRect(0, 0, W, H)
+      ctx!.clearRect(0, 0, W, H)
 
-      ctx.fillStyle = isDarkMode() ? COLOR.dark : COLOR.light
+      ctx!.fillStyle = isDarkMode() ? COLOR.dark : COLOR.light
 
       const radius = 70
 
@@ -175,9 +175,9 @@ export function NameSpotlightScatter({ name }: { name: string }) {
         d.x += d.vx
         d.y += d.vy
 
-        ctx.beginPath()
-        ctx.arc(d.x, d.y, 1.25, 0, Math.PI * 2)
-        ctx.fill()
+        ctx!.beginPath()
+        ctx!.arc(d.x, d.y, 1.25, 0, Math.PI * 2)
+        ctx!.fill()
       }
 
       animationId = requestAnimationFrame(animate)

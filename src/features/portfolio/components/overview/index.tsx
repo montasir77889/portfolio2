@@ -1,6 +1,6 @@
-import { urlToName } from "@/utils/url"
 import {
-  LinkIcon,
+  FileTextIcon,
+  GraduationCapIcon,
   MapPinIcon,
   MarsIcon,
   NonBinaryIcon,
@@ -61,15 +61,24 @@ export function Overview() {
         <EmailItem emailB64={USER.emailB64} />
 
         <IntroItem>
+          <IntroItemIcon className="border-amber-500/20 bg-amber-500/10 text-amber-600 ring-amber-500/20 dark:text-amber-400">
+            <GraduationCapIcon />
+          </IntroItemIcon>
+          <IntroItemContent>
+            BRAC University
+          </IntroItemContent>
+        </IntroItem>
+
+        <IntroItem>
           <IntroItemIcon className="border-violet-500/20 bg-violet-500/10 text-violet-600 ring-violet-500/20 dark:text-violet-400">
-            <LinkIcon />
+            <FileTextIcon />
           </IntroItemIcon>
           <IntroItemContent>
             <IntroItemLink
-              href={USER.website}
-              aria-label={`Personal website: ${urlToName(USER.website)}`}
+              href="/resume.pdf"
+              aria-label="View resume"
             >
-              {urlToName(USER.website)}
+              Resume
             </IntroItemLink>
           </IntroItemContent>
         </IntroItem>

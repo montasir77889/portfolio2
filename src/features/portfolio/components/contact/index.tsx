@@ -40,13 +40,13 @@ export function Contact() {
       <PanelContent className="space-y-6">
         <div className="space-y-2">
           <h3 className="text-xl font-semibold tracking-tight">
-            Let's build something together.
+            Let&rsquo;s build something together.
           </h3>
 
           <p className="max-w-lg text-sm text-muted-foreground">
-            Whether it's an AI project, research collaboration,
+            Whether it&rsquo;s an AI project, research collaboration,
             internship opportunity, or software engineering role,
-            I'd love to hear from you.
+            I&rsquo;d love to hear from you.
           </p>
         </div>
         
